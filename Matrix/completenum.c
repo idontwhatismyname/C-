@@ -4,18 +4,19 @@
 int main(void){
 	int M,i,j=0,total;
 	scanf("%d",&M);
+	
 	for(i=6;i<=M;i++){
 		total=0;
+		j=1;
 		for(j=1;j<=sqrt(i);j++){
-			if(j==sqrt(i))
-				total=total+j;
-			else if(i%j==0)
-				total=total+j+(i/j);
-			if(total/2>i){
-				total=0;
-				break;
-			}}
-		if(total/2==i)
+			if(i%j==0)
+				if(j==sqrt(i)||j==1)
+					total+=j;
+				else  
+					total+=j+i/j;
+			
+		}
+		if(total==i)
 			printf("%d\n",i);
 	}
 	return 0;
