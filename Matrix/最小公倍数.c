@@ -28,7 +28,8 @@ int main(void){
 			former=total;
 		
 		}
-		printf("%llu\n",total);
+		printf("%lld\n",total);
 	}
 	return 0;	
 }
+
