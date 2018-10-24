@@ -7,7 +7,6 @@ int main(void){
 	y=y-1; 
 	ycounter=y/4-y/100+y/400;
 	days=y*365+ycounter;
-	
 	m-=1;
 	k=m;
 	while(k>=0){
