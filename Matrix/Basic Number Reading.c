@@ -10,13 +10,11 @@ int main(void){
 	for(i=1;i<=times;i++){
 		counter=0;
 		num1=0,num2=0;
-		
-		scanf("%c",&ch);
-		while(ch!=10){
+		while((ch=getchar())!=10){
 			ch=ch-48;
 			num1=num1+(unsigned long long)pow(base,counter++)*ch;
 			num2=num2*base+ch;
-			scanf("%c",&ch);
+			
 		}
 		
 		printf("%d %d\n",num2,num1);
