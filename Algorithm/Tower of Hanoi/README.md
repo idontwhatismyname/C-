@@ -1,59 +1,59 @@
-¶ÔÓÚTower of HanoiÈıÖÖËã·¨µÄ½âÊÍºÍ½éÉÜ
+å¯¹äºTower of Hanoiä¸‰ç§ç®—æ³•çš„è§£é‡Šå’Œä»‹ç»
 ===========================
-## µİ¹é
-### ·Ö½âÎÊÌâ:   
-½«°Ñn¸ödisk·Åµ½peg C·Ö½âÎª½«n-1¸ödisk·Åµ½peg B ...    
-...Ò»Ö±µ½n=1µÄÊ±ºò
-### ¹ØÓÚµİ¹éµÄ¾ßÌå²Ù×÷:  
+## é€’å½’
+### åˆ†è§£é—®é¢˜:   
+å°†æŠŠnä¸ªdiskæ”¾åˆ°peg Cåˆ†è§£ä¸ºå°†n-1ä¸ªdiskæ”¾åˆ°peg B ...    
+...ä¸€ç›´åˆ°n=1çš„æ—¶å€™
+### å…³äºé€’å½’çš„å…·ä½“æ“ä½œ:  
 ```
-½«Ç°n-1¸ödisk´Ópeg 1·Åµ½µÚpeg 2Àï  
-È»ºó½«µÚn¸ö·Åµ½peg 3Àï  
-ÔÙ½«Ç°n-1¸ödisk´Ópeg 2·Åµ½peg 3
+å°†å‰n-1ä¸ªdiskä»peg 1æ”¾åˆ°ç¬¬peg 2é‡Œ  
+ç„¶åå°†ç¬¬nä¸ªæ”¾åˆ°peg 3é‡Œ  
+å†å°†å‰n-1ä¸ªdiskä»peg 2æ”¾åˆ°peg 3
 ```
-¸Ãµİ¹éµÄ±ß½çÊÇn=1
+è¯¥é€’å½’çš„è¾¹ç•Œæ˜¯n=1
 
-## Ñ­»·
-### ¹ØÓÚÑ­»·µÄÎÊÌâ½âÎö£º  
+## å¾ªç¯
+### å…³äºå¾ªç¯çš„é—®é¢˜è§£æï¼š  
 
-ÓÉÓÚÖ»ÓĞÈı¸öpeg£¬ÔòpegÖ®¼äµÄ²Ù×÷Ö»ÓĞÈı¸ö¡£¹ÊÑ­»·Êµ¼ÊÉÏÖ»ÊÇÔÚÕâÈı¸ö²Ù×÷ÖĞÑ­»·¡£  
-²¢ÇÒ£¬Îª±ÜÃâÈçÏÂÇé¿ö£º
+ç”±äºåªæœ‰ä¸‰ä¸ªpegï¼Œåˆ™pegä¹‹é—´çš„æ“ä½œåªæœ‰ä¸‰ä¸ªã€‚æ•…å¾ªç¯å®é™…ä¸Šåªæ˜¯åœ¨è¿™ä¸‰ä¸ªæ“ä½œä¸­å¾ªç¯ã€‚  
+å¹¶ä¸”ï¼Œä¸ºé¿å…å¦‚ä¸‹æƒ…å†µï¼š
 
 ```
-¼ÙÉè¿ªÊ¼Ê±peg 1ÊÇ12345£¬peg 2ºÍpeg 3¶¼ÊÇ0
+å‡è®¾å¼€å§‹æ—¶peg 1æ˜¯12345ï¼Œpeg 2å’Œpeg 3éƒ½æ˜¯0
 1->3 1->2 3->1 1->2
-ÕâÊ±¿ÉÒÔ¿´µ½ÔÚ×îºóÁ½¸ö²Ù×÷ÖĞ1ÆäÊµÊÇÏÈ´Ó3µ½1ÔÙ´Ó1µ½2£¬Ïàµ±ÓÚÊµĞĞµÄÊÇ3->2
+è¿™æ—¶å¯ä»¥çœ‹åˆ°åœ¨æœ€åä¸¤ä¸ªæ“ä½œä¸­1å…¶å®æ˜¯å…ˆä»3åˆ°1å†ä»1åˆ°2ï¼Œç›¸å½“äºå®è¡Œçš„æ˜¯3->2
 ```
-¹ÊÎÒÃÇÑ­»·ÕâÊÇÍ¨¹ıÕâÈı¸ö²Ù×÷°´Ò»¶¨Ë³Ğò½øĞĞ£¬Ö±ÖÁÍê³É  
+æ•…æˆ‘ä»¬å¾ªç¯è¿™æ˜¯é€šè¿‡è¿™ä¸‰ä¸ªæ“ä½œæŒ‰ä¸€å®šé¡ºåºè¿›è¡Œï¼Œç›´è‡³å®Œæˆ  
 
-¶øÓÉµÚÒ»ÖÖ·½·¨`µİ¹é`ÎÒÃÇ¿ÉÒÔµÃÖª£¬Ñ­»·´ÎÊı×Ü¹²ĞèÒª<a href="http://www.codecogs.com/eqnedit.php?latex=2^{n}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?2^{n}" title="2^{n}" /></a>-1
-´Î£¬¹ÊÑ­»·´ÎÊıÒ²ÊÇ<a href="http://www.codecogs.com/eqnedit.php?latex=2^{n}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?2^{n}" title="2^{n}" /></a>-1
+è€Œç”±ç¬¬ä¸€ç§æ–¹æ³•`é€’å½’`æˆ‘ä»¬å¯ä»¥å¾—çŸ¥ï¼Œå¾ªç¯æ¬¡æ•°æ€»å…±éœ€è¦<a href="http://www.codecogs.com/eqnedit.php?latex=2^{n}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?2^{n}" title="2^{n}" /></a>-1
+æ¬¡ï¼Œæ•…å¾ªç¯æ¬¡æ•°ä¹Ÿæ˜¯<a href="http://www.codecogs.com/eqnedit.php?latex=2^{n}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?2^{n}" title="2^{n}" /></a>-1
 
-### ½ÓÏÂÀ´ÊÇÑ­»·µÄ¾ßÌå²Ù×÷£º
-* ¶ÔÓÚÆæÊıµÄn¸ödisk£º
+### æ¥ä¸‹æ¥æ˜¯å¾ªç¯çš„å…·ä½“æ“ä½œï¼š
+* å¯¹äºå¥‡æ•°çš„nä¸ªdiskï¼š
 ```
-peg AÓëpeg BÖ®¼äµÄºÏ·¨ÒÆ¶¯²Ù×÷
-peg AÓëpeg CÖ®¼äµÄºÏ·¨ÒÆ¶¯²Ù×÷
-peg BÓëpeg CÖ®¼äµÄºÏ·¨ÒÆ¶¯²Ù×÷
-Ò»Ö±Ñ­»·µ½Íê³É
+peg Aä¸peg Bä¹‹é—´çš„åˆæ³•ç§»åŠ¨æ“ä½œ
+peg Aä¸peg Cä¹‹é—´çš„åˆæ³•ç§»åŠ¨æ“ä½œ
+peg Bä¸peg Cä¹‹é—´çš„åˆæ³•ç§»åŠ¨æ“ä½œ
+ä¸€ç›´å¾ªç¯åˆ°å®Œæˆ
 ```
-*×¢£ºÃ¿¸ö²Ù×÷¶¼ÊÇÎ¨Ò»µÄ*
-- ¶ÔÓÚÅ¼ÊıµÄn¸ödisk:
+*æ³¨ï¼šæ¯ä¸ªæ“ä½œéƒ½æ˜¯å”¯ä¸€çš„*
+- å¯¹äºå¶æ•°çš„nä¸ªdisk:
 ```
-peg AÓëpeg CÖ®¼äµÄºÏ·¨ÒÆ¶¯²Ù×÷
-peg AÓëpeg BÖ®¼äµÄºÏ·¨ÒÆ¶¯²Ù×÷
-peg BÓëpeg CÖ®¼äµÄºÏ·¨ÒÆ¶¯²Ù×÷
-Ò»Ö±Ñ­»·µ½Íê³É
+peg Aä¸peg Cä¹‹é—´çš„åˆæ³•ç§»åŠ¨æ“ä½œ
+peg Aä¸peg Bä¹‹é—´çš„åˆæ³•ç§»åŠ¨æ“ä½œ
+peg Bä¸peg Cä¹‹é—´çš„åˆæ³•ç§»åŠ¨æ“ä½œ
+ä¸€ç›´å¾ªç¯åˆ°å®Œæˆ
 ```
-ÎªÁË´úÂëµÄ¼ò½àĞÔ£¬ÎÒÊ¹ÓÃÁË²¼¶û±äÁ¿¶ÔBÓëC½øĞĞ½»»»
-#### ¶ÔÓÚºÏ·¨ÒÆ¶¯²Ù×÷µÄÅĞ¶Ï
+ä¸ºäº†ä»£ç çš„ç®€æ´æ€§ï¼Œæˆ‘ä½¿ç”¨äº†å¸ƒå°”å˜é‡å¯¹Bä¸Cè¿›è¡Œäº¤æ¢
+#### å¯¹äºåˆæ³•ç§»åŠ¨æ“ä½œçš„åˆ¤æ–­
 ```
-ÎÒÊÇÀûÓÃÈı¸ö`Êı×é`´¢´æ´ËÊ±Èı¸öpegËùº¬ÓĞµÄÊı×Ö
-²¢Í¨¹ıa,b,cÕâÈı¸ö`±äÁ¿`È¥·Ö±ğ´¢´æ´ËÊ±peg A peg B peg CÉÏµÄdiskÊıÄ¿
-Í¨¹ı`ifÓï¾ä`È¥ÅĞ¶ÏËûÃÇÖ®¼äµÄºÏ·¨²Ù×÷
+æˆ‘æ˜¯åˆ©ç”¨ä¸‰ä¸ª`æ•°ç»„`å‚¨å­˜æ­¤æ—¶ä¸‰ä¸ªpegæ‰€å«æœ‰çš„æ•°å­—
+å¹¶é€šè¿‡a,b,cè¿™ä¸‰ä¸ª`å˜é‡`å»åˆ†åˆ«å‚¨å­˜æ­¤æ—¶peg A peg B peg Cä¸Šçš„diskæ•°ç›®
+é€šè¿‡`ifè¯­å¥`å»åˆ¤æ–­ä»–ä»¬ä¹‹é—´çš„åˆæ³•æ“ä½œ
 ```
 
 ## Binary Operation
-*×¢£ºÎÒ»¹Ã»ÓĞ¸ã¶®Õâ¸öËã·¨µÄÔ­Àí£¬¹Ê´ÓWikipediaÉÏÕªÂ¼ÁËÏà¹Ø²Ù×÷¼°ÆäËµÃ÷*
+*æ³¨ï¼šæˆ‘è¿˜æ²¡æœ‰ææ‡‚è¿™ä¸ªç®—æ³•çš„åŸç†ï¼Œæ•…ä»Wikipediaä¸Šæ‘˜å½•äº†ç›¸å…³æ“ä½œåŠå…¶è¯´æ˜*
 
 Disk positions may be determined more directly from the binary (base-2) representation of the move number (the initial state being move #0, with all digits 0, and the final state being with all digits 1), using the following rules:
 - There is one binary digit (bit) for each disk.  
@@ -69,7 +69,7 @@ peg.)_
 - A bit with a different value to the previous one means that the corresponding disk is one position to the  
 left or right of the previous one. Whether it is left or right is determined by this rule:  
   - Assume that the initial peg is on the left.
-  - Also assume "wrapping" ¨C so the right peg counts as one peg "left" of the left peg, and vice versa.
+  - Also assume "wrapping" â€“ so the right peg counts as one peg "left" of the left peg, and vice versa.
   * Let n be the number of greater disks that are located on the same peg as their first greater disk and add 
   1 if the largest disk is on the left peg. If n is even, the disk is located one peg to the right, if n is odd, 
   the disk located one peg to the left (in case of even number of disks and vice versa otherwise).
