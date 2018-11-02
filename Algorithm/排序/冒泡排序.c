@@ -18,7 +18,7 @@ int main(void){
 					num[j+1]=temp;
 					counter++;
 				}
-				for(q=0;q<=sum-1;q++)
+				    for(q=0;q<=sum-1;q++)
 					printf("%d ",num[q]);
 				printf("\n");
 				}
