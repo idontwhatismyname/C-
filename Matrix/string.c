@@ -28,6 +28,8 @@ int main(){
         if(string1[i-1]==string2[(a==0?len2-1:a-1)])
             if(curcount>count)
                 count=curcount;
+        if(count<len2)
+            count=0;
         printf("%d\n",count);
     }
     return 0;
