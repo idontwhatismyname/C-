@@ -1,4 +1,5 @@
 #include<stdio.h>
+
 int map[100][100];
 void migong(int N,int M,int n,int m,int *a);
 int main(){
