@@ -21,28 +21,18 @@ int main(){
 }
 
 void binarytree(int num,int i){
-    if(position[2*i+1]){
-        if(position[2*i+2]||num<=tree[i])
+    if(num<=tree[i])
+        if(position[2*i+1])
             binarytree(num,2*i+1);
-        else if(num>tree[i]){
-                tree[2*i+2]=num;
-                position[2*i+2]=1;
-        }
-    }
-    else if(position[2*i+2]){
-        if(num<=tree[i]){
+        else{
             tree[2*i+1]=num;
             position[2*i+1]=1;
         }
-        else
+    else
+        if(position[2*i+2])
             binarytree(num,2*i+2);
-    }
-    else if(num>tree[i]){
-        tree[2*i+2]=num;
-        position[2*i+2]=1;
-    }
-    else{
-        tree[2*i+1]=num;
-        position[2*i+1]=1;
-    }
+        else{
+            tree[2*i+2]=num;
+            position[2*i+2]=1;
+        }
 }
