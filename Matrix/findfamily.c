@@ -1,5 +1,6 @@
 #include<stdio.h>
-int people[100][100]={0};//0是不可访问,1是可访问    0是白色，1是灰色，2是黑色
+int people[100][100]={0};
+
 int main(){
     int N,M,T,i,a,b,j,status[100]={0},success,counter=0,curr;
     scanf("%d%d",&N,&M);
