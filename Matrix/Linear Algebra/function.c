@@ -24,7 +24,7 @@ database Determinant(const matrix mat1){
 
 void SolutionSet(matrix mat){//Input a row reduced matrix and print out the solution set
 	int i,j=1;
-	bool col[mat.col+1];
+	bool col[mat.col+1],frevar=false;
 	database free[mat.row+1][mat.col+1];
 	for(i=1;i<=mat.col;i++){
 		col[i]=false;
@@ -44,28 +44,68 @@ void SolutionSet(matrix mat){//Input a row reduced matrix and print out the solu
 				free[j][i]=(i==j?(database){1,1}:Multiply((database){-1,1},mat.data[j][i]));
 		}
 	}
+	printf("The solution set is :");
+	for(j=1;j<=mat.col-1;j++){
+		if(col[j]==false){
+			frevar=true;
+			printf(" X%d * [",j);
+			for(i=1;i<=mat.row;i++){
+				print(free[i][j]);
+				printf("%c",i==mat.row?']':';');
+			}
+			printf(" + ");
+		}
+	}
+	printf("[");
 	for(i=1;i<=mat.row;i++){
+		print(mat.data[i][mat.col]);
+		printf("%c",i==mat.row?']':';');
+	}
+	if(frevar){
+		printf(" ( ");
 		for(j=1;j<=mat.col-1;j++){
 			if(col[j]==false)
-				print_row(free[i][j]);
+				printf("X%d ",j);
 		}
-		print_row(mat.data[i][mat.col]);
-		puts("");
+		printf("is free variable )");
 	}
+	puts("");
+	
 }//still needs to improve the format.
 
-void FindSolution(matrix mat){
-	RowReduceToRowReduceEchelonForm(&mat);
-	if(mat.data[mat.row][mat.col].numer!=0)
-		puts("No solution");
+void FindSolution(matrix mata,matrix matb){
+	bool status=true;
+	int i,j;
+	matrix *mat=InitializeMatrix(mata.row,mata.col+1);
+	for(i=1;i<=mata.row;i++){
+		for(j=1;j<=mata.col;j++)
+			mat->data[i][j]=mata.data[i][j];
+		mat->data[i][j]=matb.data[i][1];
+	}
+	RowReduceToRowReduceEchelonForm(mat);
+	for(i=mata.row;i>=1;i--){
+		if(mat->data[i][mat->col].numer!=0){
+			status=false;
+			for(j=1;j<=mat->col-1;j++)
+				if(mat->data[i][j].numer!=0){
+					status=true;
+					break;
+				}
+			break;
+		} 
+	}
+	if(status==false)
+		puts("No solution!");
 	else{
-		SolutionSet(mat);
+		SolutionSet(*mat);
 	}
 	return ;
 }
 
 
 matrix *FindInverse(matrix mat){
+	if(mat.col!=mat.row)
+		return NULL;
 	database deter=Determinant(mat);
 	if(deter.numer==0){
 		return NULL;
@@ -84,7 +124,6 @@ matrix *FindInverse(matrix mat){
 		}
 	}
 	RowReduceToRowReduceEchelonForm(inver);
-	PrintMatrix(*inver);
 	matrix *inverse=InitializeMatrix(mat.row,mat.col);
 	for(i=1;i<=mat.row;i++){
 		for(j=1;j<=mat.col;j++){
@@ -145,7 +184,7 @@ matrix *MatrixMultiplication(matrix *mat1,matrix *mat2){
 	return NewMat;
 }
 
-void ScalarOperation(char q,matrix *mat,database scalar){
+void ScalarOperation(char q,matrix *mat,database scalar,bool operand){
 	int i,j;
 	char operation[4]={'+','-','*','/'};
 	database (*op)(database,database);
@@ -158,7 +197,43 @@ void ScalarOperation(char q,matrix *mat,database scalar){
 	}
 	for(i=1;i<=mat->row;i++){
 		for(j=1;j<=mat->col;j++){
-			mat->data[i][j]=op(mat->data[i][j],scalar);
+			if(operand)
+				mat->data[i][j]=op(mat->data[i][j],scalar);
+			else
+				mat->data[i][j]=op(scalar,mat->data[i][j]);
 		}
 	}
-}//左右除法要做区分 
+}
+
+database InnerProduct(const database vector1[],const database vector2[],const int num){
+	database sum={0,1};
+	int i;
+	for(i=1;i<=num;i++){
+		sum=Add(sum,Multiply(vector1[i],vector2[i]));
+	}
+	return sum;
+}
+
+matrix *QRFactorization(matrix *mat){
+	int i,j,k;
+	database row1[mat->row+1],row2[mat->row+1];
+	database scalar;
+	matrix *R=InitializeMatrix(mat->col,mat->col);
+	for(i=1;i<=mat->col;i++)
+		for(j=1;j<=mat->col;j++)
+			R->data[i][j].numer=(i==j?1:0);
+	for(i=2;i<=mat->col;i++){
+		for(j=1;j<=i-1;j++){
+			for(k=1;k<=mat->row;k++){
+				row1[k]=mat->data[k][j];
+				row2[k]=mat->data[k][i];
+			}
+			scalar=Divide(InnerProduct(row1,row2,mat->row),InnerProduct(row1,row1,mat->row));
+			R->data[j][i]=scalar;
+			for(k=1;k<=mat->row;k++){
+				mat->data[k][i]=Subtract(mat->data[k][i],Multiply(scalar,mat->data[k][j]));
+			}
+		}
+	}
+	return R;
+}

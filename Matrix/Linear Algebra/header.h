@@ -2,6 +2,8 @@
 #include<stdlib.h>
 #include<stdbool.h>
 #include<math.h>
+#include<string.h>
+#define MAXStr 100000
 /*Newly designed data type which can display fraction*/
 typedef struct DATABASE{
     int numer;//分子
@@ -27,7 +29,7 @@ void gcd_Row(database *row,int col);
 matrix *InitializeMatrix(int Row,int Col);
 void ReleaseMatrix(matrix *mat);
 matrix *ReadMatrix();
-database read();
+database read(char *str,int *index);
 void PrintMatrix(const matrix mat);
 /*----------------------------------------------*/
 /*Elementary row operation*/
@@ -41,19 +43,19 @@ void EchelonFormToReduceEchelonForm(matrix*mat);
 void RowReduceToRowReduceEchelonForm(matrix *mat);
 /*----------------------------------------------------*/
 /* Operation on IO */
-void ClearBlank();
 void print(database data);
-void print_row(database data);
 /*----------------------------------------------------*/
 /*funcions*/
 database Determinant(const matrix mat1);
-void FindSolution(matrix mat);
+void FindSolution(matrix mata,matrix matb);
 void SolutionSet(matrix mat);
 matrix *FindInverse(matrix mat);
 matrix *LUFactorization(matrix *mat);
 matrix *MatrixMultiplication(matrix *mat1,matrix *mat2);
 matrix *MatrixMultiplicationScalarProduct(matrix *mat1,matrix *mat2);
-void ScalarOperation(char q,matrix *mat,database scalar);
+void ScalarOperation(char q,matrix *mat,database scalar,bool operand);
+database InnerProduct(const database vector1[],const database vector2[],const int num);
+matrix *QRFactorization(matrix *mat);
 /*------------------------------------------------------------------*/
 /*functions UI display*/
 void FindSolutionDisplay();
@@ -61,4 +63,5 @@ void FindInverseDisplay();
 void LUFactorizationDisplay();
 void DeterminantDisplay();
 void MatrixMultiplicationDisplay();
+void ScalarOperationDisplay();
 /*-----------------------------------------------------------*/

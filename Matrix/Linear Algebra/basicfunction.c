@@ -99,51 +99,26 @@ void gcd(database*data1){
 }
 /*-------------------------------------------------------------*/
 /*IO for my newly designed database*/
-database read(){
-    char ch;
-    bool status=0,negative=false,success=false;
-    database data={0,1};
-    int curnum=0;
-    while(((ch=getchar())!=' '&&ch!='\n')||success==false){
-        if((ch==' '||ch=='\n')&&success==false)
-    		continue;
-    	else
-    		success=true;
-		if(ch=='/'){
-            status=1;
-            data.numer=(negative?-1:1)*curnum;
-            curnum=0;
-            while((ch=getchar())!=' '&&ch!='\n'){
-                curnum=curnum*10+(ch-'0');
-            }
-            data.deno=curnum;
-            break;
-        }
-        if(ch=='-'){
-        	negative=true;
-			continue;
-		} 
-		curnum=curnum*10+(ch-'0');
+database read(char *str,int *index){
+	bool negative=false;
+	database data={0,1};
+	for(;!(str[*index]>='0'&&str[*index]<='9');(*index)++)
+		if(str[*index]=='-')
+			negative=true;
+	for(;str[*index]>='0'&&str[*index]<='9';data.numer=data.numer*10+str[*index]-'0',(*index)++);
+    if(negative)
+		data.numer*=-1; 
+	if(str[*index]=='/'){
+    	data.deno=0;
+		for((*index)++;str[*index]>='0'&&str[*index]<='9';data.deno=data.deno*10+str[*index]-'0',(*index)++);
     }
-    if(status==0) data.numer=(negative?-1:1)*curnum;
-    return data;
-}
-void ClearBlank(){
-	char ch;
-	while((ch=getchar())!='\n');
+	return data;
 }
 void print(database data){
 	if(data.numer==0||data.deno==1)
-		printf("%d\n",data.numer);
+		printf("%d",data.numer);
 	else
 		printf("%d/%d",data.numer,data.deno);
-}
-
-void print_row(database data){
-	if(data.numer==0||data.deno==1)
-		printf("%d ",data.numer);
-	else
-		printf("%d/%d ",data.numer,data.deno);
 }
 /*------------------------------------------------------------------------*/
 /*row reduction of matrix*/
@@ -254,30 +229,40 @@ void Scaling(database *row,const database scales,const int col){
 /*----------------------------------------------------------------*/
 /*Matrix initialization release read print*/
 matrix* ReadMatrix(){
-    int row,col,i,j;
-    scanf("%d%d",&row,&col);
-    ClearBlank();
-    matrix *mat=InitializeMatrix(row,col);
-
-    for(i=1;i<=row;i++){
+    bool colStatus=true;
+	int i,j,len,row=1,col=1,curr=-1,index=0;
+    char str[MAXStr];
+	scanf("%s",str);
+	getchar();
+	len=strlen(str);
+	while(str[++curr]!=']'){
+		if(str[curr]==';'){
+			colStatus=false;
+			row++;
+		}
+		else if(str[curr]==','&&colStatus)
+			col++;
+	}
+	matrix *mat=InitializeMatrix(row,col);
+	for(i=1;i<=row;i++){
         for(j=1;j<=col;j++)
-            mat->data[i][j]=read();
+            mat->data[i][j]=read(str,&index);
     }
     return mat;
 }
 void PrintMatrix(const matrix mat){
     int i,j;
-    for(i=1;i<=mat.row;i++){
-        for(j=1;j<=mat.col;j++){
-            if(mat.data[i][j].numer!=0)
-				gcd(&(mat.data[i][j]));
+    printf("[");
+	for(i=1;i<=mat.row;i++){
+		printf("\n\n%4c",' ');
+		for(j=1;j<=mat.col;j++){
             if(mat.data[i][j].deno==1||mat.data[i][j].numer==0)
-                printf("%d ",mat.data[i][j].numer);
+                printf("%4d%4c",mat.data[i][j].numer,' ');
             else
-                printf("%d/%d ",mat.data[i][j].numer,mat.data[i][j].deno);
+                printf("%3d/%-3d ",mat.data[i][j].numer,mat.data[i][j].deno);
         }
-        puts("");
     }
+    puts("\n]");
 }
 matrix *InitializeMatrix(int Row,int Col){
     database data={0,1};
