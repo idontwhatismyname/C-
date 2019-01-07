@@ -64,4 +64,6 @@ void LUFactorizationDisplay();
 void DeterminantDisplay();
 void MatrixMultiplicationDisplay();
 void ScalarOperationDisplay();
+void QRFactorizationDisplay();
+void selection(char op);
 /*-----------------------------------------------------------*/
