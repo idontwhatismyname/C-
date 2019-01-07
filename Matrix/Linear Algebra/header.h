@@ -58,6 +58,7 @@ database InnerProduct(const database vector1[],const database vector2[],const in
 matrix *QRFactorization(matrix *mat);
 /*------------------------------------------------------------------*/
 /*functions UI display*/
+void ui();
 void FindSolutionDisplay();
 void FindInverseDisplay();
 void LUFactorizationDisplay();
