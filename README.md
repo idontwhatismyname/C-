@@ -595,7 +595,7 @@ matrix *FindInverse(matrix mat){
 	return inverse;
 }//need to be Release
 
-matrix *LUFactorization(matrix *mat){//only supported the matrix which can row reduce to echelon while only using row replacement
+matrix *LUFactorization(matrix *mat){
 	matrix *L=InitializeMatrix(mat->row,mat->row);
 	database data={1,1},multiple;
 	int i,j,k,pivot=0,q;
@@ -709,13 +709,18 @@ matrix *QRFactorization(matrix *mat){
 void ui(){
     char ch;
     puts("Welcome to my Linear Algebra Package!");
-    puts("-----------------------------------------------------------------------------------------");
-    puts("-----------------------------------------------------------------------------------------");
-	puts("There are several functions that you can use to help your calculation of linear algebra\n");
-	printf("\t1.Find the Soltion of the Matrix\n\t2.Find The Inverse of the Matrix\n\t3.LU Factorization of the Matrix\n"    
+    puts("---------------------------------------------------"
+    "--------------------------------------");
+    puts("----------------------------------------------------"
+    "-------------------------------------");
+	puts("There are several functions that you can use to help"
+    " your calculation of linear algebra\n");
+	printf("\t1.Find the Soltion of the Matrix\n\t2.Find The Inverse of" 
+    "the Matrix\n\t3.LU Factorization of the Matrix\n"    
 	"\t4.Calculate the Determinant of the Matrix\n\t5.Matrix Multiplication"
     "\n\t6.Scalr operation on Matrix\n\t7.QR Factorization of the Matrix\n\n");
-    printf("Please select the functions that you want to use(q/Q to quit the program):");
+    printf("Please select the functions "
+    "that you want to use(q/Q to quit the program):");
     while(scanf("%c",&ch)!=EOF){
         getchar();
 		if(ch>='1'&&ch<='7')
@@ -725,11 +730,15 @@ void ui(){
         }
         else 
             printf("Error!Please enter a valid character!\n");
-		puts("\n-----------------------------------------------------------------------------------------");
-		printf("Functions:\n\t1.Find the Soltion of the Matrix\n\t2.Find The Inverse of the Matrix\n\t3.LU Factorization of the Matrix\n"    
+		puts("\n--------------------------------------------------------------"
+        "---------------------------");
+		printf("Functions:\n\t"
+        "1.Find the Soltion of the Matrix\n\t2.Find The Inverse of the"
+        " Matrix\n\t3.LU Factorization of the Matrix\n"    
 		"\t4.Calculate the Determinant of the Matrix\n\t5.Matrix Multiplication"
     	"\n\t6.Scalr operation on Matrix\n\t7.QR Factorization of the Matrix\n\n");
-    	printf("Please select the functions that you want to use(q/Q to quit the program):");
+    	printf("Please select the functions that "
+        "you want to use(q/Q to quit the program):");
     }
     puts("Thank you for using the application!\nHave a nice day!");
 }
