@@ -51,13 +51,11 @@ void SolutionSet(matrix mat){//Input a row reduced matrix and print out the solu
 		}
 		print_row(mat.data[i][mat.col]);
 		puts("");
-		puts("");
 	}
 }//still needs to improve the format.
 
 void FindSolution(matrix mat){
 	RowReduceToRowReduceEchelonForm(&mat);
-	PrintMatrix(mat);
 	if(mat.data[mat.row][mat.col].numer!=0)
 		puts("No solution");
 	else{
