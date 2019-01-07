@@ -1,3 +1,7 @@
+/**
+ *    author:  ouyanghaolan
+ *    created: 07.01.2019   
+**/
 #include"header.h"
 
 /*Functions for newly design database*/
