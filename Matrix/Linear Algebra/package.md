@@ -21,7 +21,8 @@
 ### 测试样例6
 ![img](https://github.com/idontwhatismyname/C-/raw/master/Matrix/Linear%20Algebra/6_1.PNG)  
 ![img](https://github.com/idontwhatismyname/C-/raw/master/Matrix/Linear%20Algebra/6_2.PNG)  
-![img](https://github.com/idontwhatismyname/C-/raw/master/Matrix/Linear%20Algebra/6_3.PNG)  
+![img](https://github.com/idontwhatismyname/C-/raw/master/Matrix/Linear%20Algebra/6_3.PNG)
+![img](https://github.com/idontwhatismyname/C-/raw/master/Matrix/Linear%20Algebra/6_4.PNG)  
 ### 测试样例7
 ![img](https://github.com/idontwhatismyname/C-/raw/master/Matrix/Linear%20Algebra/7.PNG)  
 ## 使用说明
